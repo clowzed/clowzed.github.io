@@ -1,0 +1,50 @@
+---
+id: registration
+title: "registration"
+description: "registration"
+sidebar_label: "registration"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVm1v2zYQ/isHftgaTHHsNFkWYRuWti6QIWk3x9kwJEFLS2eLLUWq5MmOGvi/D0fasSIHWzYU+zR/MX083ttz9/juBMmZF+mVkDUV4iYRtkInSVlzmotUOJwpT1EgEuHwU42eXti8EemdyKwhNMRHWVVaZUFv74O3hmU+K7CUfKKmQpEKO/mAGYlE5Ogzp6pgNRXjAuH9SU3FS4c5GlJS+/fgydUZ1Q7BYeXQoyEPVCBwpKwVvUG2eQSVs3OVYw6TBiTUHt0qaOUw5yy1nSlOpJLeL6zLOePKcc6k0HOoUWMTsyenzOzRmNm+kWU45DC1rhNa79qcEpS1J5B5gQ6BbMhgarW2C2VmkDlF6JRMr80unBJk0gBXVSoDGonQeXgmdz/vJGDqchJ+9nePdxKQJocKnbK5h2e9nd7GgLF0b0OaBuy067SQTmZsO4Wv4Ad4B1/DLnwDCXwPPz60U8g5QllrUpXGtj/24DGrSc1RN8H7uTKqrEvQaGZUsNvDlquoIm87Kgf9to5IRClvz8KtSPf7iSiVWf88XLZwexJAa+0nAFQiUqdMq74pufHSxxMc7P/TDFnnBDJbTpSJ/WunUFcVukx6XGOegLaLrmjVABF635QTq/+mYoP95TIReCvLSmOruUXZhFNv0B6FVJw3c3SNJ2fNbC0evBPLRJAitiA6UyqW7GAzYORqDAJfcXuEgdrv9/nrITqXHh0spAdfZxl6P621biCyDbKp5N+TS3ve1SMTrtrdowzhLNDE1LpSUhR9e7DVTyc1WZihYXbEHFTOwMlWyJFuOgVnX4P94+fH3z0/Ghy1Cjm6f3cZn/HDg/7xdqnOGCkopAepHcq8gQmi+UK16s6M8iveBeVDdhFIztWjm6MDZWAic/CK6uDk2owLGYlrgnD6ZjwcvTk5g4vh6LfhCIaj0dsRWAcvTl7BaPjr5fBifG3+sHV4MFUmB6k1KBOrz/OgODfpLV+jzjuAxqttUFfyJ9CC8tEwLJTW90SJzlnXjiMguUbrFZJUsd2XiTh8rKMvbIkrKzbLascdYU2glFi5/2H6T2Fadk12VpkSqbBMepX1FGiQGVPsyUrt8b/EXkef/+ycouaCQYrJfFjQblibNukURBUrByWRiglKF6CPh9drjvn59/FWzqNV/XhLqNBxinC/jXlYKCoYT/QhZ26a0WYdG34BkueyhlxW5fTo7FaU57XSpHJbMhyeJKksRAWF9RShDGBloc15PRKpyLRdfA5MhaVUeiPpLaz7+NOMhb3MlhyFVhkaj63X56djvpij8zGGQa/f2z9iGYNXStNS7sD2IPh7mAhvaa/SUhk2UjvNd7EDroSslEjiPpw8NHeTCM6Sle7uJtLjpdPLJYs/1egakV7dJGIunZITLuDVzTIRBcocnUiv7sRHbEQqXkYS2B1zKKyuaw5pixCWyfrFSZZhRX+pe9Nq6F/eXnBzTVZLemnzUBe54HTkQqTiWlwLwat+6Kwwlyy/E1qaWS1nrB/t8udP3pc8fQ==
+sidebar_class_name: "post api-method"
+info_path: docs/OpenAPI/sero
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>registration</h1>
+
+<MethodEndpoint method={"post"} path={"/api/auth/registration"}></MethodEndpoint>
+
+
+
+registration
+
+## Request
+
+<MimeTabs className={"openapi-tabs__mime"}><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} className={"openapi-markdown__details mime"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-mime"}><h3 className={"openapi-markdown__details-summary-header-body"}>Body</h3><strong className={"openapi-schema__required"}>required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"login"} required={true} schemaName={"string"} qualifierMessage={"**Possible values:** `>= 5 characters` and `<= 20 characters`"} schema={{"type":"string","description":"The username used for authentication.\nIt must adhere to the following criteria:\n- It can contain letters (a-z), numbers (0-9), and periods (.).\n- It cannot contain any of the following characters: & = _ ' - + , < >\n- It cannot have multiple periods (.) consecutively.\n- Minimum length of 5 characters.\n- Maximum length of 40 characters.","maxLength":20,"minLength":5}}></SchemaItem><SchemaItem collapsible={false} name={"password"} required={true} schemaName={"string"} qualifierMessage={"**Possible values:** `>= 12 characters` and `<= 20 characters`"} schema={{"type":"string","description":"The password used for authentication.\nIt must meet the following requirements:\n- Minimum length of 12 characters.\n- Maximum length of 40 characters.\n- A combination of uppercase letters, lowercase letters, numbers, and symbols.","maxLength":20,"minLength":12}}></SchemaItem></ul></details></TabItem></MimeTabs><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"200"} value={"200"}><div>
+
+User was successfully registered
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={true} schemaName={"int64"} qualifierMessage={undefined} schema={{"type":"integer","format":"int64","description":"Auto generated id of a registered user"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"id\": 1293983717\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"409"} value={"409"}><div>
+
+Login has already been registered
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"reason"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"This field will contain error information"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"reason\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"500"} value={"500"}><div>
+
+Some error occurred on the server
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"reason"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"This field will contain error information"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"reason\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

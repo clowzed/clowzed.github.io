@@ -1,0 +1,62 @@
+---
+id: disable
+title: "disable"
+description: "disable"
+sidebar_label: "disable"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV01vIzcM/SsETy0wG2e3WxQwiqLZroum2I/WdloUWR9kDZ1RopFmRY69rjH/vaA8tuO1j0VOOdkSKYp8j5LebFDMHePwFidOCIwVFwPjrMDYUDI6ui5xiKVjM/eEBTYmmZqEkq7aYDA14RC/vOB2XsbauIAFuoBDrMiUlLDAktgm12isY0/YukCiJhFTEAYNB3EBBx+JYI33fWoQNX6iz61LVOJQUksFsq2oNjjcoKwbTYcluXCHXTdTZ25iYGK1v7p8rT/HKeXSV4aBW2uJedF6v4a+5BK7Al9fXp4uO1OJjUGMCwwuLI13JdjKJGMVLYgJaseseRWojhREg5qm8c5mqAf3rJE3pwXF+T1ZOQFzWjkGltRaAcdgYFdsxpDSkhK4AHNTAjtp8yafwrQyAtYEmBNcf5iOxh+u3sFkNP5rNIbRePxxrLm+uXoL49GfN6PJ9FP4J7Z5wcKFEpQNFxYx1TmebpDIcFQz+fKIn1vcmrSjmqQ9JW7LRD9/wtnZEnNgWDnvdxADpRTT4zyw6woUJ16DvSUxzjN2XZfpe3lK300wrVQxuX+pfGbkyRn57sw53B8nxxBXgUqYr8GEKBUlaDnfJs88PS1PZ+7Ld/HOBa30cP/p7RmiwCK24fk0PTVL3597niaxpj5KtLZNiUqIAaSiHrlnmp6Upq5AJtsmJ+usnO5X8kJfIBzezlSnHO93EFw1SRVVgzVGbJUVmC7CgWncgJ3Q4OC722CixG0LPGyzL7ESabBXTTqek0m5HbZ/fs2l4BB//3t6gsO4x1R1WUNJy4a9VGRYOamUY+KMg+KSN+7xYErxJOT71nlx/UXCYsTZHAKqyHKQS8bmPu0Fp/VxtX24qTbOH2YuVjE9/Hynkxc21qrevLMUmB6tfn89VcOSEm9zeHlxefHqB51rIkttwiPnA7xHee/hFPoig8ar9O0KbJNX25akWzSNU6id5PV9pFmBWpvaN5u5YbpJvut0+nNLSdtjVuDSJJe9tT+KnZzWztkr0+HCeKaTvPanGr/Z0fUt/B+6+2zBD7Q++QBYGt+qJ3bFpne4spYaeWQ7uXD0EOyb/Y+r6S+/YYFfte5XrZrh6E0mrB9F//FNdoBpfKDwE+7SFB1iN+u67j/IIoPX
+sidebar_class_name: "patch api-method"
+info_path: docs/OpenAPI/sero
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>disable</h1>
+
+<MethodEndpoint method={"patch"} path={"/api/site/disable"}></MethodEndpoint>
+
+
+
+disable
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"x-subdomain","in":"header","description":"x-subdomain header represents name of subdomain to call action on","required":true,"schema":{"type":"string"}}}></ParamsItem></ul></div></details><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"204"} value={"204"}><div>
+
+Site was successfully disabled
+
+</div><div></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+x-subdomain header contains invalid characters or missing
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"reason"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"This field will contain error information"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"reason\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"reason"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"This field will contain error information"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"reason\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Subdomain is owned by another user
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"reason"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"This field will contain error information"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"reason\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Login or subdomain was not found
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"reason"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"This field will contain error information"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"reason\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"500"} value={"500"}><div>
+
+Some error occurred on the server
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"reason"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"This field will contain error information"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"reason\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      

@@ -1,0 +1,780 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "sero",
+    "description": "Muiltidomain static site hosting",
+    "contact": {
+      "name": "clowzed",
+      "email": "clowzed.work@gmail.com"
+    },
+    "license": {
+      "name": "MIT"
+    },
+    "version": "1.0.27"
+  },
+  "paths": {
+    "/api/auth/login": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Login user",
+        "description": "Login user",
+        "operationId": "login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthCredentials"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "User was successfully authenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JwtToken"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Login was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Some error occurred on the server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/registration": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "operationId": "registration",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthCredentials"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "User was successfully registered",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegisteredUser"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Login has already been registered",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Some error occurred on the server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/cors": {
+      "post": {
+        "tags": [
+          "CORS management"
+        ],
+        "operationId": "origins_add",
+        "parameters": [
+          {
+            "name": "x-subdomain",
+            "in": "header",
+            "description": "x-subdomain header represents name of subdomain to call action on",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OriginsForm"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Origins were successfully added"
+          },
+          "400": {
+            "description": "x-subdomain header contains invalid characters or missing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Subdomain is owned by another user"
+          },
+          "404": {
+            "description": "Login or subdomain was not found"
+          },
+          "500": {
+            "description": "Some error occurred on the server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt-auth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "CORS management"
+        ],
+        "operationId": "origins_clear",
+        "parameters": [
+          {
+            "name": "x-subdomain",
+            "in": "header",
+            "description": "x-subdomain header represents name of subdomain to call action on",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Origins were successfully removed"
+          },
+          "400": {
+            "description": "x-subdomain header contains invalid characters or missing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Subdomain is owned by another user"
+          },
+          "404": {
+            "description": "Login or subdomain was not found"
+          },
+          "500": {
+            "description": "Some error occurred on the server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt-auth": []
+          }
+        ]
+      }
+    },
+    "/api/site/disable": {
+      "patch": {
+        "tags": [
+          "Site actions"
+        ],
+        "operationId": "disable",
+        "parameters": [
+          {
+            "name": "x-subdomain",
+            "in": "header",
+            "description": "x-subdomain header represents name of subdomain to call action on",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Site was successfully disabled"
+          },
+          "400": {
+            "description": "x-subdomain header contains invalid characters or missing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Subdomain is owned by another user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Login or subdomain was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Some error occurred on the server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt-auth": []
+          }
+        ]
+      }
+    },
+    "/api/site/download": {
+      "get": {
+        "tags": [
+          "Site actions"
+        ],
+        "operationId": "download",
+        "parameters": [
+          {
+            "name": "x-subdomain",
+            "in": "header",
+            "description": "x-subdomain header represents name of subdomain to call action on",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Site was successfully downloaded",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "x-subdomain header contains invalid characters or missing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Subdomain is owned by another user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Login or subdomain or archive was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Some error occurred on the server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt-auth": []
+          }
+        ]
+      }
+    },
+    "/api/site/enable": {
+      "patch": {
+        "tags": [
+          "Site actions"
+        ],
+        "operationId": "enable",
+        "parameters": [
+          {
+            "name": "x-subdomain",
+            "in": "header",
+            "description": "x-subdomain header represents name of subdomain to call action on",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Site was successfully enabled"
+          },
+          "400": {
+            "description": "x-subdomain header contains invalid characters or missing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Subdomain is owned by another user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Login or subdomain was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Some error occurred on the server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt-auth": []
+          }
+        ]
+      }
+    },
+    "/api/site/teardown": {
+      "delete": {
+        "tags": [
+          "Site actions"
+        ],
+        "operationId": "teardown",
+        "parameters": [
+          {
+            "name": "x-subdomain",
+            "in": "header",
+            "description": "x-subdomain header represents name of subdomain to call action on",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Site was successfully removed"
+          },
+          "400": {
+            "description": "x-subdomain header contains invalid characters or missing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Subdomain is owned by another user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Login or subdomain was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Some error occurred on the server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt-auth": []
+          }
+        ]
+      }
+    },
+    "/api/site/upload": {
+      "post": {
+        "tags": [
+          "Site actions"
+        ],
+        "operationId": "upload",
+        "parameters": [
+          {
+            "name": "x-subdomain",
+            "in": "header",
+            "description": "x-subdomain header represents name of subdomain to call action on",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/UploadData"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Site was successfully uploaded"
+          },
+          "400": {
+            "description": "Something is bad in your request. See details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Subdomain is owned by another user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Something was not found. See details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Some error occurred on the server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Details"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "jwt-auth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AuthCredentials": {
+        "type": "object",
+        "description": "The `AuthCredentials` structure represents the authentication credentials provided by a user",
+        "required": [
+          "login",
+          "password"
+        ],
+        "properties": {
+          "login": {
+            "type": "string",
+            "description": "The username used for authentication.\nIt must adhere to the following criteria:\n- It can contain letters (a-z), numbers (0-9), and periods (.).\n- It cannot contain any of the following characters: & = _ ' - + , < >\n- It cannot have multiple periods (.) consecutively.\n- Minimum length of 5 characters.\n- Maximum length of 40 characters.",
+            "maxLength": 20,
+            "minLength": 5
+          },
+          "password": {
+            "type": "string",
+            "description": "The password used for authentication.\nIt must meet the following requirements:\n- Minimum length of 12 characters.\n- Maximum length of 40 characters.\n- A combination of uppercase letters, lowercase letters, numbers, and symbols.",
+            "maxLength": 20,
+            "minLength": 12
+          }
+        },
+        "example": {
+          "login": "mylogin.1",
+          "password": "Myverystrongpassword1_"
+        }
+      },
+      "Details": {
+        "type": "object",
+        "description": "This struct is a response of server in bad situation\nThat can be INTERNAL SERVER ERROR or BAD REQUEST\nYou can find all information in reason field",
+        "required": [
+          "reason"
+        ],
+        "properties": {
+          "reason": {
+            "type": "string",
+            "description": "This field will contain error information"
+          }
+        }
+      },
+      "JwtToken": {
+        "type": "object",
+        "description": "The JWT token generated for authentication purposes.",
+        "required": [
+          "token"
+        ],
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "Token in JWT format"
+          }
+        },
+        "example": {
+          "token": "ferwfwerfwer.fwerfwerfwerfwer.fwerfewfr"
+        }
+      },
+      "OriginsForm": {
+        "type": "object",
+        "description": "This struct represents user request\nWith a list of origins to be added",
+        "required": [
+          "origins"
+        ],
+        "properties": {
+          "origins": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "This can contain urls and wildcard symbol"
+          }
+        }
+      },
+      "RegisteredUser": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Auto generated id of a registered user"
+          }
+        },
+        "example": {
+          "id": 1293983717
+        }
+      },
+      "UploadData": {
+        "type": "object",
+        "required": [
+          "archive"
+        ],
+        "properties": {
+          "archive": {
+            "type": "string",
+            "format": "binary"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "jwt-auth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Required to perform operations with sites"
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+---
+id: origins-add
+title: "origins_add"
+description: "origins_add"
+sidebar_label: "origins_add"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk1vGzcQ/SvEnFpgYztpigJCUdROFMBFEqeS3KCQhWLEHWlpc8nNkGtZFfa/F8NdfXmFntqccrJFDofvvXmznA1EXAYYTOHNzWisSnS4pJJchFkGviLGaLy7zmEAns3SuPAX5jlkUCFjSZFYDm/AYUkwgKcXoZ7nvkTjIAPjYAAFYU4MGeQUNJtK8h1HqjZEMVVMgVwMStIpv1D7mOiVRmsVakmgvORn+lIbphwGkWvKIOiCSoTBBuK6EjghsnFLaJpZG0whXvl8LRHauyg0BxvAqrJGJ6Ln90HQbfqp/PyedOzRmBQmqBC51vEQfx0Sn3TjnftsYqFQWROikOqEFEpzUpjnlB+RmW6llhpULFWIhoKA2W7scSEzrkXrSGU4Qf0kYI1OiQAibM02KHS5Whmba+RchXU59xaaJoNoopVsN+297zyX0MjGsfRpIVTehRbmq4vX8uf45i6HWhGTCrXWFMKitnbdSdBk8Prion/uhFM67EEZ94jW5EoXyKjFjcqzKk0IQj77P6psgkK1ZZs8SvxIrIxTc8xVMLFOl9y5SYExST0ndf1xMhx9vHyvxsPRH8ORGo5GNyPBenX5Vo2Gv98Ox5M796ev04GFcbkStxu38FymfHIBEwYv22SfW6bd6jumW+8Z4yTFlFiMYHf2IGbPhziOfPGWIhobxBOpfC/75bt1WMfCs/k72fxbRb5uRX7oV2S8aycTlF85ytV8rdD5WBCnT1fbiyd6+L1fGici7VtyhUE5H9XC1y418Y+nmnjsS+qQe61rZsqVdyoW1FXrmzW+qjWaDALpmk1cp/f7fhVfSJ/CYDqT1/L4vuOnv6RYeJkIKh9iGgXkHJxjZc615wD73GOpWcttf8OOXRFjBd2zLb/nhJyc0P7zLrGAAfz2edKTYNTJKa9oRSyM1W5eCWolT24wkUKSQDw02g8AwycsK9Hk4EWdbsWeNTK5LHwC2kkXiH0Pwofa2Gi6NggRo9HpSlX4EPfvD+pk6W5C0tav2i8hlWjsfuVs5fnh16UsnmlfSidZo8kFOjj94XoiG4/EocXw8uzi7NVPsibFKNEdBG/njLZqR9h3JYj0FM8rK/Nak0HNVvbagk4BK5M4cJpEhJWsbjZzDHTLtmlk+UtNLB6aZfCIbHAugk1FxG7yE3vlJshGDoMF2kA9NLvWh++2hf1e/Rcj4kmaD7TuzaqPaGuJhCbbdAFvWlAvJpJjH9H7Nu1PXGpNVfzX2NlB/3y6GYux591IWvpczjCu5HOBKxjAHdwByCCeXJ0+EbK+AYtuWeNS4tu84vJn7fWsnVIhtlOjWx+g/PkqBaiJfyD3C2wFivITmlnTNP8AzQI7iA==
+sidebar_class_name: "post api-method"
+info_path: docs/OpenAPI/sero
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>origins_add</h1>
+
+<MethodEndpoint method={"post"} path={"/api/cors"}></MethodEndpoint>
+
+
+
+origins_add
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Header Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"x-subdomain","in":"header","description":"x-subdomain header represents name of subdomain to call action on","required":true,"schema":{"type":"string"}}}></ParamsItem></ul></div></details><MimeTabs className={"openapi-tabs__mime"}><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} className={"openapi-markdown__details mime"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-mime"}><h3 className={"openapi-markdown__details-summary-header-body"}>Body</h3><strong className={"openapi-schema__required"}>required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"origins"} required={true} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"string"},"description":"This can contain urls and wildcard symbol"}}></SchemaItem></ul></details></TabItem></MimeTabs><div><div><ApiTabs label={undefined} id={undefined}><TabItem label={"204"} value={"204"}><div>
+
+Origins were successfully added
+
+</div><div></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+x-subdomain header contains invalid characters or missing
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"reason"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"This field will contain error information"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"reason\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"reason"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"This field will contain error information"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"reason\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Subdomain is owned by another user
+
+</div><div></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Login or subdomain was not found
+
+</div><div></div></TabItem><TabItem label={"500"} value={"500"}><div>
+
+Some error occurred on the server
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"reason"} required={true} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"This field will contain error information"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"reason\": \"string\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+      
